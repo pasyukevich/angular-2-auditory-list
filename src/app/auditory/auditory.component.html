@@ -1,0 +1,9 @@
+<section>
+  <mat-progress-spinner *ngIf="!auditory" mode="indeterminate"></mat-progress-spinner>
+  <div *ngIf="auditory">
+    <h3>Auditory#{{auditory.name}}</h3>
+    <p>Auditory type: {{auditory.auditoryType.name}}
+      <br> Campus# {{auditory.buildingNumber.name}}</p>
+  </div>
+  <a routerLink='/list'>back</a>
+</section>

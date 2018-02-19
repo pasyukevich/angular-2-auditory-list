@@ -1,0 +1,10 @@
+<input [(ngModel)]="searchText" placeholder="search by auditory number">
+<mat-progress-spinner *ngIf="!list" mode="indeterminate"></mat-progress-spinner>
+<mat-list>
+  <mat-list-item *ngFor="let item of list | search: searchText | slice:firstItemIndex:lastItemIndex">
+    <h3 matSubheader>Auditory#{{item.name}}</h3>
+    <a mat-raised-button [routerLink]="['/auditory', item.id]">id:{{item.id}}</a>
+  </mat-list-item>
+</mat-list>
+<mat-paginator [length]="(list | search: searchText)?.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"
+  (page)="listUpdate()">></mat-paginator>
